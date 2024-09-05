@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Teachers' Day!</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #4a90e2, #50e3c2);
+            color: #fff;
+            text-align: center;
+            padding: 0;
+            margin:0;s
+        }
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            animation: fadeIn 2s ease-in;
+        }
+        p {
+            font-size: 1.4em;
+            line-height: 1.6em;
+            animation: fadeIn 3s ease-in;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            animation: bounce 1s infinite;
+        }
+        .button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        .thank-you-card {
+            display: inline-block;
+            background: #fff;
+            color: #000;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+            margin-top: 20px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        .thank-you-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+<a href="drawing.html" class="button">Some AI Arts</a>
+<body>
+    <div class="container">
+        <h1>Happy Teachers' Day!</h1>
+        <p>Dear Mallika mam,</p>
+        <p>On behalf of BAL MANDIR SR SEC SCHOOL, we want to express our heartfelt gratitude for your incredible dedication and passion. Your guidance and support make a significant impact on our lives.</p>
+<a href="teacher2.html" class="button">View Your Certificate</a>
+        <p>May your day be as special as you are!</p>
+        <a href="#" class="button" onclick="showCard()">Click to Open Your Thank You Card</a>
+        <div id="thankYouCard" class="thank-you-card" style="display:none;">
+            <h2>Thank You!</h2>
+            <p>Your commitment and enthusiasm are truly inspiring. We are grateful for all the knowledge and support you provide.
+Thank you for your unwavering patience and dedication. Your passion for computer science has truly inspired me to explore the field further.Your innovative teaching methods and encouragement have helped me develop a deeper understanding and appreciation for computer science. I sincerely appreciate all the effort you put into making this subject interesting and accessible. Your teaching has sparked a genuine interest in computer science within me.</p>
+            <p>Wishing you a joyful Teachers' Day!</p>
+        </div>
+    </div>
+    <script>
+        function showCard() {
+            document.getElementById('thankYouCard').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+<hr>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	

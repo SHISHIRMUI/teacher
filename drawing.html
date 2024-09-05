@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Science Art</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            animation: backgroundColorChange 10s infinite alternate;
+        }
+
+        @keyframes backgroundColorChange {
+            0% {
+                background: linear-gradient(to bottom, #003d34, #004d40); /* Darker cyan shades */
+            }
+            100% {
+                background: linear-gradient(to bottom, #004d40, #003d34); /* Lighter cyan shades */
+            }
+        }
+    }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        canvas {
+            border: 1px solid #ccc;
+            margin: 10px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes draw {
+            from {
+                stroke-dasharray: 1000;
+                stroke-dashoffset: 1000;
+            }
+            to {
+                stroke-dasharray: 1000;
+                stroke-dashoffset: 0;
+            }
+        }
+
+        #computerCanvas, #binaryCanvas, #circuitCanvas, #flowchartCanvas {
+            animation: draw 2s ease-out;
+        }
+
+        #keyboardKeys {
+            animation: slideIn 2s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Computer Science Art</h1>
+
+        <!-- Enhanced Computer Setup -->
+        <h2>1. Enhanced Computer Setup</h2>
+        <canvas id="computerCanvas" width="600" height="400"></canvas>
+
+        <!-- Binary Pattern -->
+        <h2>2. Binary Pattern</h2>
+        <canvas id="binaryCanvas" width="300" height="300"></canvas>
+
+        <!-- Circuit Pattern -->
+        <h2>3. Circuit Pattern</h2>
+        <canvas id="circuitCanvas" width="300" height="300"></canvas>
+
+        <!-- Flowchart -->
+        <h2>4. Flowchart</h2>
+        <canvas id="flowchartCanvas" width="300" height="300"></canvas>
+    </div>
+
+    <script>
+        // 1. Enhanced Computer Setup
+        function drawComputerSetup() {
+            const canvas = document.getElementById('computerCanvas');
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+
+            // CPU
+            const cpuWidth = 100;
+            const cpuHeight = 150;
+            const cpuX = width * 0.05;
+            const cpuY = height * 0.3;
+            ctx.fillStyle = '#333';
+            ctx.fillRect(cpuX, cpuY, cpuWidth, cpuHeight);
+            ctx.strokeStyle = '#222';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(cpuX, cpuY, cpuWidth, cpuHeight);
+
+            // Computer Body
+            const bodyWidth = width * 0.5;
+            const bodyHeight = height * 0.4;
+            const bodyX = width * 0.25;
+            const bodyY = height * 0.2;
+            ctx.fillStyle = '#555';
+            ctx.fillRect(bodyX, bodyY, bodyWidth, bodyHeight);
+            ctx.strokeStyle = '#444';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(bodyX, bodyY, bodyWidth, bodyHeight);
+
+            // Screen
+            const screenWidth = bodyWidth * 0.8;
+            const screenHeight = bodyHeight * 0.6;
+            const screenX = bodyX + (bodyWidth - screenWidth) / 2;
+            const screenY = bodyY + (bodyHeight - screenHeight) / 2;
+            ctx.fillStyle = '#000';
+            ctx.fillRect(screenX, screenY, screenWidth, screenHeight);
+            ctx.strokeStyle = '#4a90e2';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(screenX, screenY, screenWidth, screenHeight);
+
+            // Keyboard
+            const keyboardWidth = 150;
+            const keyboardHeight = 30;
+            const keyboardX = bodyX + (bodyWidth - keyboardWidth) / 2;
+            const keyboardY = bodyY + bodyHeight;
+            ctx.fillStyle = '#444';
+            ctx.fillRect(keyboardX, keyboardY, keyboardWidth, keyboardHeight);
+
+            // Keyboard Keys
+            const keyWidth = 12;
+            const keyHeight = 20;
+            ctx.fillStyle = '#666';
+            for (let i = 0; i < keyboardWidth / keyWidth; i++) {
+                ctx.fillRect(keyboardX + i * keyWidth, keyboardY + 5, keyWidth, keyHeight);
+            }
+
+            // Mouse
+            const mouseWidth = 50;
+            const mouseHeight = 30;
+            const mouseX = width * 0.4;
+            const mouseY = height * 0.7;
+            ctx.fillStyle = '#666';
+            ctx.beginPath();
+            ctx.ellipse(mouseX, mouseY, mouseWidth / 2, mouseHeight / 2, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#444';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+
+        // 2. Binary Pattern
+        function drawBinaryPattern() {
+            const canvas = document.getElementById('binaryCanvas');
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+            const fontSize = 20;
+            const gap = 5;
+            ctx.font = `${fontSize}px monospace`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            for (let y = 0; y < height; y += fontSize + gap) {
+                for (let x = 0; x < width; x += fontSize + gap) {
+                    const text = Math.random() > 0.5 ? '1' : '0';
+                    ctx.fillStyle = '#000';
+                    ctx.fillText(text, x + fontSize / 2, y + fontSize / 2);
+                }
+            }
+        }
+
+        // 3. Circuit Pattern
+        function drawCircuitPattern() {
+            const canvas = document.getElementById('circuitCanvas');
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+            const padding = 20;
+
+            ctx.strokeStyle = '#ff6347';
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+
+            for (let x = padding; x < width - padding; x += (width - 2 * padding) / 5) {
+                ctx.moveTo(x, padding);
+                ctx.lineTo(x, height - padding);
+            }
+
+            for (let y = padding; y < height - padding; y += (height - 2 * padding) / 5) {
+                ctx.moveTo(padding, y);
+                ctx.lineTo(width - padding, y);
+            }
+
+            ctx.stroke();
+        }
+
+        // 4. Flowchart
+        function drawFlowchart() {
+            const canvas = document.getElementById('flowchartCanvas');
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+
+            // Draw rectangles
+            ctx.fillStyle = '#3498db';
+            ctx.fillRect(50, 50, 200, 60);
+            ctx.fillRect(50, 150, 200, 60);
+            ctx.fillRect(50, 250, 200, 60);
+
+            // Draw text
+            ctx.fillStyle = '#fff';
+            ctx.font = '20px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('Start', 150, 80);
+            ctx.fillText('Process', 150, 180);
+            ctx.fillText('End', 150, 280);
+
+            // Draw arrows
+            ctx.strokeStyle = '#000';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(150, 110);
+            ctx.lineTo(150, 150);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(150, 210);
+            ctx.lineTo(150, 250);
+            ctx.stroke();
+        }
+
+        // Draw all art pieces
+        window.onload = () => {
+            drawComputerSetup();
+            drawBinaryPattern();
+            drawCircuitPattern();
+            drawFlowchart();
+        };
+    </script>
+</body>
+</html>
+<a style="padding-right:30px;font-size:40px" href="teacher.html">Home</a>s
+
